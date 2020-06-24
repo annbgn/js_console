@@ -1,5 +1,5 @@
 .input {
-    background-color: #c4c3d0;
+    background-color: #DDDDE4;
 }
 
 .output {
@@ -7,5 +7,14 @@
 }
 
 .error {
-    background-color: #ffa399;
+    background-color: #FFDAD6;
+}
+
+p {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    font: Courier, monospace;
+    font-family: inherit;
 }
