@@ -12,7 +12,9 @@
         <br>
         <br>
 
-        <textarea id="input" onkeydown="if (event.keyCode == 13) prosessInput();"></textarea>
+        <textarea id="input" onkeydown="if (event.keyCode == 13) prosessInput();" placeholder="Type your code here and press Enter"></textarea>
+        <br>
+        <br>
 
         <input type="button" id="dummy" value="upload file" onclick="document.getElementById('browse').click();" />
         <input id="browse" type="file" multiple size="50" onchange="processFile();" style="display:none;">
