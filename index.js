@@ -1,4 +1,5 @@
 function prosessInput(code = null, is_file = false) {
+    is_debug = document.getElementById("debug_mode").checked;
     if (!code)
         code = document.getElementById("input").value;
     document.getElementById("input").value = "";
@@ -17,7 +18,15 @@ function prosessInput(code = null, is_file = false) {
         output.classList += ['output'];
         framedoc.getElementById("container").appendChild(output);
     } catch (exc) {
-        output.innerHTML = exc;
+        if (is_debug) {
+            output.innerHTML = exc;
+            output.innerHTML += "; for variable scope see console.log";
+            for (let variable in window) {
+                if (window.hasOwnProperty(variable)) {
+                    console.log(variable);
+                }
+            }
+        } else output.innerHTML = "unknown error, use debug mode for more informative";
         output.classList += ['error'];
         framedoc.getElementById("container").appendChild(output);
     } finally {
