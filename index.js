@@ -39,9 +39,16 @@ function processFile() {
                     popup_txt += file.name + " is wrong extension, skip";
                     continue;
                 }
-                let reader = new FileReader();
-                let code = reader.readAsText(file);
-                prosessInput(code, true);
+
+                var reader = new FileReader();
+                reader.readAsText(file, "UTF-8");
+                reader.onload = function (evt) {
+                    prosessInput(evt.target.result, true);
+                }
+                reader.onerror = function (evt) {
+                    popup_txt = "couldn't read file's content, check encoding.";
+
+                }
             }
         }
     } else {
@@ -52,5 +59,5 @@ function processFile() {
             popup_txt += "<br>The path of the selected file: " + files_chunk.value; // If the browser does not support the files property, it will return the path of the selected file instead. 
         }
     }
-    alert(popup_txt);
+    if (popup_txt) alert(popup_txt);
 }
